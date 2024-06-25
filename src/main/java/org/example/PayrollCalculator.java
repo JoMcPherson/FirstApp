@@ -10,8 +10,14 @@ public class PayrollCalculator {
      float hours = scanner.nextInt();
      System.out.println("Enter their hourly pay:");
      int pay = scanner.nextInt();
-     float gross = hours*pay;
-     System.out.println(String.format("%s has $%.2f gross pay",name, gross));
+     float overtime = 0;
+     String note = "";
+     if (hours > 40) {
+         overtime = hours - 40;
+         hours = 40;
+     note = "("  +name + " earned overtime)";}
+     double gross = hours*pay + overtime*pay*1.5;
+     System.out.println(String.format("%s has $%.2f gross pay %s",name, gross, note));
 
 
     }

@@ -1,10 +1,14 @@
 package org.example;
-
+import java.util.Scanner;
 public class MortgageCalculator {
     public static void main(String[] args) {
-     float loanAmount = 53000.00f;
-     float interestRate = 7.625f;
-     int loanLength = 15;
+        Scanner scanner = new Scanner(System.in);
+     System.out.println("Please enter the loan amount:");
+     float loanAmount = scanner.nextFloat();
+        System.out.println("Please enter the interest rate:");
+     float interestRate = scanner.nextFloat();
+     System.out.println("Please enter the loan length in years:");
+     int loanLength = scanner.nextInt();
      float MIR = interestRate/1200;
      double monthlyPay = (loanAmount*(MIR))/(1-Math.pow((1+MIR),-(loanLength*12)));
      double totalInt = monthlyPay*loanLength*12 - loanAmount;
